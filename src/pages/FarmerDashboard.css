@@ -1,0 +1,14 @@
+/* src/pages/FarmerDashboard.css */
+.farmer-dashboard {
+    padding: 20px;
+  }
+  
+  .dashboard-sections {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dashboard-section {
+    margin-bottom: 20px;
+  }
+  

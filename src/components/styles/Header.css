@@ -1,0 +1,76 @@
+/* src/components/Header.css */
+.header-navbar {
+  margin-bottom: 20px;
+  background-color: #dd6705; /* Light background color */
+  border-bottom: 1px solid #e5e5e5; /* Light border */
+}
+
+.header-navbar .navbar-brand img {
+  max-width: 120px; /* Slightly larger logo */
+}
+
+/* Style for dark theme */
+.navbar-dark {
+  background-color: hsl(20, 97%, 34%); /* Dark background for dark theme */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #f8f9fa; /* Light text color on dark background */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #ff6f00; /* Orange color on hover */
+}
+
+/* Style for light theme */
+.navbar-light {
+  background-color: #ffffff; /* White background for light theme */
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #000; /* Dark text color on light background */
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #ff6f00; /* Orange color on hover */
+}
+
+/* Style for dropdown button and items */
+.dropdown-menu {
+  background-color: hsl(33, 99%, 46%); /* White background for dropdown */
+  border: 1px solid #e5e5e5; /* Light border for dropdown */
+}
+
+.dropdown-item {
+  color: #000; /* Dark text color for dropdown items */
+}
+
+.dropdown-item:hover {
+  background-color: #ff6f00; /* Orange background on hover */
+  color: #fff; /* White text color on hover */
+}
+
+/* Style for search form */
+.form-inline {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  margin-right: 10px;
+  border-color: #ff6f00; /* Orange border for search input */
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 111, 0, 0.25); /* Orange focus ring */
+}
+
+.btn-outline-success {
+  border-color: #ff6f00; /* Orange border for search button */
+  color: #ff6f00; /* Orange text color */
+}
+
+.btn-outline-success:hover {
+  background-color: #ff6f00; /* Orange background on hover */
+  color: #fff; /* White text color on hover */
+}

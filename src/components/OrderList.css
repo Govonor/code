@@ -1,0 +1,13 @@
+/* src/components/OrderList.css */
+.order-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .order-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  

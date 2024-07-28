@@ -1,0 +1,21 @@
+/* Privacy.css */
+
+/* Basic styling for the Privacy page */
+.privacy {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .privacy h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .privacy p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  

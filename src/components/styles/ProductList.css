@@ -1,0 +1,7 @@
+/* src/components/styles/ProductList.css */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  

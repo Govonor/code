@@ -1,0 +1,21 @@
+/* About.css */
+
+/* Basic styling for the About page */
+.about {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .about h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .about p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  

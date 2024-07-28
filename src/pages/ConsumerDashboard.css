@@ -1,0 +1,10 @@
+/* src/pages/ConsumerDashboard.css */
+.dashboard-container {
+    padding: 20px;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  

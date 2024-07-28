@@ -1,0 +1,47 @@
+.homepage-container {
+  text-align: center; /* Center align text */
+  padding: 50px; /* Add padding */
+  background-color: #f8f9fa; /* Light background color */
+}
+
+/* Heading style */
+.homepage-container h1 {
+  font-size: 2.5rem; /* Large font size for the heading */
+  color: #343a40; /* Dark color for the heading */
+  margin-bottom: 20px; /* Space below heading */
+}
+
+/* Paragraph style */
+.homepage-container p {
+  font-size: 1.2rem; /* Slightly larger text for the paragraph */
+  color: #6c757d; /* Gray color for text */
+  margin-bottom: 30px; /* Space below paragraph */
+}
+
+/* Container for buttons */
+.homepage-buttons {
+  display: flex;
+  justify-content: center; /* Center align buttons */
+  gap: 20px; /* Space between buttons */
+}
+
+/* Style for primary button */
+.homepage-buttons .btn-primary {
+  background-color: #007bff; /* Bootstrap primary color */
+  border-color: #007bff; /* Border color matches button */
+}
+
+/* Style for secondary button */
+.homepage-buttons .btn-secondary {
+  background-color: #6c757d; /* Bootstrap secondary color */
+  border-color: #6c757d; /* Border color matches button */
+}
+
+/* Button hover effects */
+.homepage-buttons .btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.homepage-buttons .btn-secondary:hover {
+  background-color: #5a6268; /* Darker gray on hover */
+}

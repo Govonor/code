@@ -1,0 +1,15 @@
+/* src/pages/ProductDetail.css */
+.product-detail {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .product-image {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .product-info {
+    flex: 2;
+  }
+  
