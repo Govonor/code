@@ -1,0 +1,20 @@
+.order-history {
+    padding: 1rem;
+  }
+  
+  .order-item {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  .order-item h4 {
+    margin: 0 0 0.5rem;
+  }
+  
+  .order-item p {
+    margin: 0;
+  }
+  

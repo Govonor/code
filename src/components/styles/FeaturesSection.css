@@ -1,0 +1,18 @@
+.features-section {
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  .features-section h2 {
+    margin-bottom: 2rem;
+  }
+  
+  .features-section .card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .features-section .card-img {
+    height: 150px;
+    object-fit: cover;
+  }
+  

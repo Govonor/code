@@ -1,0 +1,38 @@
+.newsletter-signup {
+    padding: 3rem 1rem;
+    text-align: center;
+    background-color: #f8f9fa;
+  }
+  
+  .newsletter-signup h2 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .newsletter-signup form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .newsletter-signup input {
+    padding: 10px;
+    font-size: 1rem;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .newsletter-signup button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .newsletter-signup button:hover {
+    background-color: #0056b3;
+  }
+  

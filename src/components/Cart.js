@@ -10,14 +10,15 @@ const Cart = () => {
   ]);
 
   const handleCheckout = () => {
-    // Logic for checkout
+    // Placeholder for checkout logic
+    alert('Proceeding to checkout');
   };
 
   return (
-    <div>
-      <h1>Your Cart</h1>
+    <div className="cart-container">
+      <h1 className="cart-title">Your Cart</h1>
       {cartItems.length > 0 ? (
-        <Table striped bordered hover>
+        <Table striped bordered hover className="cart-table">
           <thead>
             <tr>
               <th>Product</th>
@@ -30,7 +31,7 @@ const Cart = () => {
             {cartItems.map(item => (
               <tr key={item.id}>
                 <td>{item.name}</td>
-                <td>${item.price}</td>
+                <td>${item.price.toFixed(2)}</td>
                 <td>{item.quantity}</td>
                 <td>${(item.price * item.quantity).toFixed(2)}</td>
               </tr>
@@ -44,9 +45,11 @@ const Cart = () => {
           </tfoot>
         </Table>
       ) : (
-        <p>Your cart is empty.</p>
+        <p className="empty-cart-message">Your cart is empty.</p>
       )}
-      <Button variant="success" onClick={handleCheckout}>Proceed to Checkout</Button>
+      <Button variant="success" onClick={handleCheckout} className="checkout-button">
+        Proceed to Checkout
+      </Button>
     </div>
   );
 };

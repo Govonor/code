@@ -1,50 +1,56 @@
-/* Footer.css */
-
-/* Basic styling for the footer */
 .footer {
-  background-color: hsl(23, 99%, 45%); /* Dark background color */
-  color: #ffffff; /* White text color */
-  padding: 20px 0; /* Padding for the footer */
-  text-align: center; /* Center align text */
+  background-color: #343a40;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
 }
 
-/* Container for the footer content */
 .footer-content {
-  max-width: 1200px; /* Max width for the content */
-  margin: 0 auto; /* Center the container */
-  padding: 0 20px; /* Padding inside the container */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Style for the footer links */
 .footer-links {
-  margin-bottom: 20px; /* Space below links */
+  margin-bottom: 1.5rem;
 }
 
 .footer-links a {
-  color: #ffffff; /* White text color */
-  margin: 0 10px; /* Space between links */
-  text-decoration: none; /* Remove underline */
-  font-size: 14px; /* Font size for links */
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 1rem;
 }
 
 .footer-links a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
 }
 
-/* Style for the footer info */
 .footer-info {
-  font-size: 14px; /* Font size for footer info */
+  margin-bottom: 1.5rem;
 }
 
 .footer-info p {
-  margin: 5px 0; /* Space between paragraphs */
+  margin: 0.5rem 0;
 }
 
 .footer-info a {
-  color: #ffffff; /* White text color for links */
-  text-decoration: none; /* Remove underline */
+  color: #007bff;
+  text-decoration: none;
 }
 
 .footer-info a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
+}
+
+.social-media {
+  margin: 1rem 0;
+}
+
+.social-media a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.social-media a:hover {
+  text-decoration: underline;
 }

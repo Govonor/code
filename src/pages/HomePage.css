@@ -1,47 +1,136 @@
+/* HomePage.css */
+
 .homepage-container {
-  text-align: center; /* Center align text */
-  padding: 50px; /* Add padding */
-  background-color: #f8f9fa; /* Light background color */
+  text-align: center;
+  padding: 2rem;
 }
 
-/* Heading style */
-.homepage-container h1 {
-  font-size: 2.5rem; /* Large font size for the heading */
-  color: #343a40; /* Dark color for the heading */
-  margin-bottom: 20px; /* Space below heading */
+.hero-section {
+  background-image: url('../images/hero-bg.jpg'); /* Correct relative path */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 4rem 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
 }
 
-/* Paragraph style */
-.homepage-container p {
-  font-size: 1.2rem; /* Slightly larger text for the paragraph */
-  color: #6c757d; /* Gray color for text */
-  margin-bottom: 30px; /* Space below paragraph */
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-/* Container for buttons */
-.homepage-buttons {
+.hero-section p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons .btn {
+  margin: 0.5rem;
+}
+
+.features-section {
+  padding: 2rem;
+}
+
+.features-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-items {
   display: flex;
-  justify-content: center; /* Center align buttons */
-  gap: 20px; /* Space between buttons */
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-/* Style for primary button */
-.homepage-buttons .btn-primary {
-  background-color: #007bff; /* Bootstrap primary color */
-  border-color: #007bff; /* Border color matches button */
+.feature-item {
+  text-align: center;
+  margin: 1rem;
+  flex: 1;
+  max-width: 300px;
 }
 
-/* Style for secondary button */
-.homepage-buttons .btn-secondary {
-  background-color: #6c757d; /* Bootstrap secondary color */
-  border-color: #6c757d; /* Border color matches button */
+.feature-item img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
 }
 
-/* Button hover effects */
-.homepage-buttons .btn-primary:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+.feature-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.homepage-buttons .btn-secondary:hover {
-  background-color: #5a6268; /* Darker gray on hover */
+.feature-item p {
+  font-size: 1rem;
+}
+
+.testimonials-section {
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.testimonials-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  width: 300px;
+  margin: 1rem;
+}
+
+.featured-products-section {
+  padding: 2rem;
+}
+
+.featured-products-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.featured-products {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  width: 300px;
+  margin: 1rem;
+}
+
+.newsletter-section {
+  padding: 2rem;
+  background-color: #e9ecef;
+}
+
+.newsletter-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.newsletter-form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+}
+
+.newsletter-form button {
+  font-size: 1rem;
 }

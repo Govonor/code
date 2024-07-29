@@ -1,0 +1,25 @@
+.notifications {
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .notifications h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .notifications ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .notifications li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .notifications li:last-child {
+    border-bottom: none;
+  }
+  

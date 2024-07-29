@@ -1,27 +1,38 @@
 // src/components/OrderList.js
 import React from 'react';
-import './OrderList.css'; // Ensure this path is correct
+import PropTypes from 'prop-types';
 
-function OrderList() {
-  // Dummy data for orders
-  const orders = [
-    { id: 1, customer: 'John Doe', status: 'Shipped' },
-    { id: 2, customer: 'Jane Smith', status: 'Pending' },
-  ];
+const OrderList = ({ orders = [] }) => {
+  // Check if orders is an array and has elements
+  if (!Array.isArray(orders)) {
+    console.error('Invalid data format for orders:', orders);
+    return <div>Error loading orders.</div>;
+  }
 
   return (
     <div className="order-list">
-      <ul>
-        {orders.map(order => (
-          <li key={order.id}>
-            <span>Order #{order.id}</span>
-            <span>Customer: {order.customer}</span>
-            <span>Status: {order.status}</span>
-          </li>
-        ))}
-      </ul>
+      {orders.length === 0 ? (
+        <p>No orders to display.</p>
+      ) : (
+        <ul>
+          {orders.map((order, index) => (
+            <li key={index}>
+              <h4>Order #{order.id}</h4>
+              <p>Product: {order.product}</p>
+              <p>Quantity: {order.quantity}</p>
+              <p>Price: ${order.price}</p>
+              <p>Status: {order.status}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
-}
+};
+
+// Define prop types to ensure that `orders` is an array
+OrderList.propTypes = {
+  orders: PropTypes.array
+};
 
 export default OrderList;

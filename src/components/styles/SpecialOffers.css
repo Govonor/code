@@ -1,0 +1,25 @@
+.special-offers {
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .special-offers h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .special-offers ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .special-offers li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .special-offers li:last-child {
+    border-bottom: none;
+  }
+  

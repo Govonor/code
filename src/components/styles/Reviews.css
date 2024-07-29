@@ -1,0 +1,25 @@
+.reviews {
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .reviews h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .reviews ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .reviews li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .reviews li:last-child {
+    border-bottom: none;
+  }
+  

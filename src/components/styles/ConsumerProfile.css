@@ -1,0 +1,11 @@
+.consumer-profile {
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .consumer-profile h3 {
+    margin-bottom: 1rem;
+  }
+  

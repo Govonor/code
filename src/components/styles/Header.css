@@ -1,76 +1,59 @@
-/* src/components/Header.css */
+/* Header.css */
 .header-navbar {
-  margin-bottom: 20px;
-  background-color: #dd6705; /* Light background color */
-  border-bottom: 1px solid #e5e5e5; /* Light border */
+  background-color: #f8f9fa; /* Light background for the header */
+  border-bottom: 1px solid #e5e5e5; /* Light border for separation */
+  position: fixed; /* Fix the header to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it sits on top of other content */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Vertically center items */
+  padding: 0 15px; /* Add padding for better spacing */
 }
 
 .header-navbar .navbar-brand img {
-  max-width: 120px; /* Slightly larger logo */
+  max-width: 100px; /* Adjust logo size */
 }
 
-/* Style for dark theme */
-.navbar-dark {
-  background-color: hsl(20, 97%, 34%); /* Dark background for dark theme */
+.header-navbar .navbar-nav {
+  margin-right: auto; /* Push navigation links to the left */
 }
 
-.navbar-dark .navbar-nav .nav-link {
-  color: #f8f9fa; /* Light text color on dark background */
+.header-navbar .navbar-nav .nav-link {
+  color: #333; /* Default text color */
+  margin-left: 15px; /* Space between links */
 }
 
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: #ff6f00; /* Orange color on hover */
+.header-navbar .navbar-nav .nav-link:hover {
+  color: #007bff; /* Highlight color on hover */
 }
 
-/* Style for light theme */
-.navbar-light {
-  background-color: #ffffff; /* White background for light theme */
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: #000; /* Dark text color on light background */
-}
-
-.navbar-light .navbar-nav .nav-link:hover {
-  color: #ff6f00; /* Orange color on hover */
-}
-
-/* Style for dropdown button and items */
-.dropdown-menu {
-  background-color: hsl(33, 99%, 46%); /* White background for dropdown */
-  border: 1px solid #e5e5e5; /* Light border for dropdown */
-}
-
-.dropdown-item {
-  color: #000; /* Dark text color for dropdown items */
-}
-
-.dropdown-item:hover {
-  background-color: #ff6f00; /* Orange background on hover */
-  color: #fff; /* White text color on hover */
-}
-
-/* Style for search form */
-.form-inline {
+.header-navbar .search-form {
   display: flex;
-  align-items: center;
+  align-items: center; /* Center the search input vertically */
 }
 
-.form-control {
-  margin-right: 10px;
-  border-color: #ff6f00; /* Orange border for search input */
+.header-navbar .search-form .input-group {
+  max-width: 300px; /* Limit width of search input */
 }
 
-.form-control:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 111, 0, 0.25); /* Orange focus ring */
+.header-navbar .ml-auto {
+  margin-left: auto; /* Push the dropdown and search form to the right */
 }
 
-.btn-outline-success {
-  border-color: #ff6f00; /* Orange border for search button */
-  color: #ff6f00; /* Orange text color */
+.header-navbar .dropdown-menu {
+  right: 0; /* Align dropdown menu to the right */
+  left: auto; /* Override the default left alignment */
+  background-color: #ffffff; /* Background color of the dropdown */
+  border: 1px solid #ddd; /* Border color of the dropdown */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
-.btn-outline-success:hover {
-  background-color: #ff6f00; /* Orange background on hover */
-  color: #fff; /* White text color on hover */
+.header-navbar .dropdown-menu .dropdown-item {
+  color: #333; /* Text color for items */
+}
+
+.header-navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #f8f9fa; /* Highlight color on hover */
 }
