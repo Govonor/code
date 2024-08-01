@@ -1,18 +1,37 @@
+/* src/styles/FeaturesSection.css */
+
 .features-section {
-    padding: 3rem 1rem;
-    text-align: center;
-  }
-  
-  .features-section h2 {
-    margin-bottom: 2rem;
-  }
-  
-  .features-section .card {
-    margin-bottom: 1.5rem;
-  }
-  
-  .features-section .card-img {
-    height: 150px;
-    object-fit: cover;
-  }
-  
+  padding: 40px 20px;
+}
+
+.features-section h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.feature-card {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.feature-card .card-body {
+  text-align: center;
+}
+
+.feature-card .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.feature-card .card-text {
+  color: #555;
+}

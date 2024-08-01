@@ -1,55 +1,48 @@
-import React, { useState } from 'react';
-import { Table, Button } from 'react-bootstrap';
-import './styles/Cart.css';
+import React, { useContext } from 'react';
+import { CartContext } from './CartContext';
+import { Link } from 'react-router-dom';
+import './styles/Cart.css'; // Ensure you create and style this file
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([
-    // Example cart items
-    { id: 1, name: 'Tomato', price: 3.00, quantity: 2 },
-    { id: 2, name: 'Onion', price: 2.50, quantity: 1 }
-  ]);
+  // Use context
+  const { cart = [], removeFromCart, clearCart } = useContext(CartContext);
 
-  const handleCheckout = () => {
-    // Placeholder for checkout logic
-    alert('Proceeding to checkout');
-  };
+  if (!Array.isArray(cart)) {
+    console.error('Cart is not an array');
+    return <div>There was an error loading your cart.</div>;
+  }
+
+  if (cart.length === 0) {
+    return (
+      <div className="cart-empty">
+        <h2>Your cart is currently empty.</h2>
+        <p>It looks like you haven't added any items to your cart yet.</p>
+        <Link to="/products" className="btn btn-primary">Go to Products</Link>
+      </div>
+    );
+  }
 
   return (
-    <div className="cart-container">
-      <h1 className="cart-title">Your Cart</h1>
-      {cartItems.length > 0 ? (
-        <Table striped bordered hover className="cart-table">
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cartItems.map(item => (
-              <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>${item.price.toFixed(2)}</td>
-                <td>{item.quantity}</td>
-                <td>${(item.price * item.quantity).toFixed(2)}</td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colSpan="3" className="text-right">Total</td>
-              <td>${cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}</td>
-            </tr>
-          </tfoot>
-        </Table>
-      ) : (
-        <p className="empty-cart-message">Your cart is empty.</p>
-      )}
-      <Button variant="success" onClick={handleCheckout} className="checkout-button">
-        Proceed to Checkout
-      </Button>
+    <div className="cart">
+      <h2>Your Shopping Cart</h2>
+      <ul className="cart-items">
+        {cart.map(item => (
+          <li key={item.id} className="cart-item">
+            <img src={item.image} alt={item.name} className="cart-item-image" />
+            <div className="cart-item-details">
+              <h3>{item.name}</h3>
+              <p>${item.price.toFixed(2)}</p>
+              <p>Quantity: {item.quantity}</p>
+              <button onClick={() => removeFromCart(item.id)} className="btn btn-danger">Remove</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="cart-summary">
+        <h3>Total Amount: ${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</h3>
+        <button onClick={clearCart} className="btn btn-secondary">Clear Cart</button>
+        <Link to="/checkout" className="btn btn-success">Proceed to Checkout</Link>
+      </div>
     </div>
   );
 };

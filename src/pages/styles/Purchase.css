@@ -1,0 +1,17 @@
+/* Purchase.css */
+.card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-body h5 {
+    font-size: 1.25rem;
+  }
+  
+  .card-body p {
+    font-size: 1rem;
+  }
+  
+  .text-end {
+    text-align: end;
+  }
+  

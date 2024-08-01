@@ -2,34 +2,38 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import './styles/FeaturesSection.css';
 
+import beansImage from '../images/beans.jpeg';
+import kalesImage from '../images/kales.jpg';
+import farmerConsumerImage from '../images/farmer-consumer.jpg';
+
 const FeaturesSection = () => (
   <Container className="features-section">
-    <h2>Why Choose Ask Mkulima?</h2>
+    <h2 className="text-center">Why Choose Us?</h2>
     <Row>
-      <Col md={4}>
-        <Card>
-          <Card.Img variant="top" src="/path-to-icon1.png" />
+      <Col md={4} className="mb-4">
+        <Card className="feature-card">
+          <Card.Img variant="top" src={beansImage} />
           <Card.Body>
             <Card.Title>Fresh Produce</Card.Title>
-            <Card.Text>Get farm-fresh produce directly delivered to your home.</Card.Text>
+            <Card.Text>Get access to the freshest local produce directly from farmers.</Card.Text>
           </Card.Body>
         </Card>
       </Col>
-      <Col md={4}>
-        <Card>
-          <Card.Img variant="top" src="/path-to-icon2.png" />
+      <Col md={4} className="mb-4">
+        <Card className="feature-card">
+          <Card.Img variant="top" src={kalesImage} />
           <Card.Body>
-            <Card.Title>Support Local Farmers</Card.Title>
-            <Card.Text>Empower Kenyan farmers by purchasing directly from them.</Card.Text>
+            <Card.Title>Fair Prices</Card.Title>
+            <Card.Text>Enjoy fair prices by eliminating middlemen.</Card.Text>
           </Card.Body>
         </Card>
       </Col>
-      <Col md={4}>
-        <Card>
-          <Card.Img variant="top" src="/path-to-icon3.png" />
+      <Col md={4} className="mb-4">
+        <Card className="feature-card">
+          <Card.Img variant="top" src={farmerConsumerImage} />
           <Card.Body>
-            <Card.Title>Transparent Pricing</Card.Title>
-            <Card.Text>Enjoy fair pricing with no middlemen involved.</Card.Text>
+            <Card.Title>Support Farmers</Card.Title>
+            <Card.Text>Support local farmers and sustainable agriculture.</Card.Text>
           </Card.Body>
         </Card>
       </Col>

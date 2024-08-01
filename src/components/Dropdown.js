@@ -12,11 +12,10 @@ const Dropdown = () => {
 
       <BootstrapDropdown.Menu>
         <BootstrapDropdown.Item as={Link} to="/">Home</BootstrapDropdown.Item>
-        <BootstrapDropdown.Item as={Link} to="/contact-us">Contact Us</BootstrapDropdown.Item>
-        <BootstrapDropdown.Item as={Link} to="/about-us">About Us</BootstrapDropdown.Item>
+        <BootstrapDropdown.Item as={Link} to="/contact">Contact Us</BootstrapDropdown.Item>
+        <BootstrapDropdown.Item as={Link} to="/about">About Us</BootstrapDropdown.Item>
         <BootstrapDropdown.Item as={Link} to="/market">Market</BootstrapDropdown.Item>
         <BootstrapDropdown.Item as={Link} to="/purchase">Purchase</BootstrapDropdown.Item>
-        {/* Add more links as needed */}
       </BootstrapDropdown.Menu>
     </BootstrapDropdown>
   );
