@@ -1,15 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Context Providers
 import { CartProvider } from './components/CartContext';
 import { AuthProvider } from './components/AuthContext';
 
+// Components
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Checkout from './components/Checkout';  // Correct path for Checkout
+import Cart from './components/Cart';  // Correct path for Cart
+
+// Pages
 import HomePage from './pages/HomePage';
 import ProductList from './pages/ProductList';
 import ProductDetail from './pages/ProductDetail';
-import CartPage from './components/Cart';
-import Checkout from './components/Checkout';
 import Profile from './pages/Profile';
 import Orders from './pages/Orders';
 import Login from './pages/LoginPage';
@@ -20,9 +25,11 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
-import Market from './pages/Market'; // Import Market component
-import Purchase from './pages/Purchase'; // Import Purchase component
-import './App.css'; // Import global styles
+import Market from './pages/Market';
+import Purchase from './pages/Purchase';
+
+// Global Styles
+import './App.css';
 
 const App = () => {
   return (
@@ -35,7 +42,7 @@ const App = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/products" element={<ProductList />} />
               <Route path="/products/:id" element={<ProductDetail />} />
-              <Route path="/cart" element={<CartPage />} />
+              <Route path="/cart" element={<Cart />} />  {/* Updated path for Cart */}
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/orders" element={<Orders />} />
@@ -47,8 +54,8 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
-              <Route path="/market" element={<Market />} /> {/* Add route for Market */}
-              <Route path="/purchase" element={<Purchase />} /> {/* Add route for Purchase */}
+              <Route path="/market" element={<Market />} />
+              <Route path="/purchase" element={<Purchase />} />
             </Routes>
           </CartProvider>
         </AuthProvider>

@@ -1,20 +1,70 @@
-/* Dropdown.css */
-.dropdown-toggle::after {
-  display: none; /* Remove default arrow */
+/* Styles for the dropdown toggle button */
+#dropdown-basic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: transform 0.3s ease;
 }
 
+/* Add a subtle scale effect on hover */
+#dropdown-basic:hover {
+  transform: scale(1.1);
+}
+
+/* Style for the SVG icon */
+#dropdown-basic svg {
+  width: 24px; /* Size of the icon */
+  height: 24px; /* Size of the icon */
+  fill: #333; /* Default icon color */
+  transition: fill 0.3s ease, transform 0.3s ease; /* Smooth color transition */
+}
+
+/* Change icon color and apply rotation on hover */
+#dropdown-basic:hover svg {
+  fill: #007bff; /* Color on hover */
+  transform: rotate(90deg); /* Rotate icon on hover */
+}
+
+/* Style for the dropdown menu */
 .dropdown-menu {
-  right: 0; /* Align dropdown menu to the right */
-  left: auto; /* Override the default left alignment */
-  background-color: #ffffff; /* Background color of the dropdown */
-  border: 1px solid #ddd; /* Border color of the dropdown */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  border-radius: 8px; /* Increased border-radius for more rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%; /* Position below the toggle */
+  left: 0; /* Align menu to the left of the toggle */
+  width: 100vw; /* Full viewport width */
+  max-width: 100%; /* Ensure it doesn’t exceed viewport width */
+  box-sizing: border-box; /* Include padding and border in element’s total width and height */
+  background: linear-gradient(180deg, #fff, #f9f9f9); /* Gradient background */
+  border: 1px solid #e0e0e0; /* Subtle border for definition */
 }
 
-.dropdown-menu .dropdown-item {
-  color: #333; /* Text color for items */
+/* Style for dropdown items */
+.dropdown-item {
+  padding: 12px 24px; /* Increased padding for a more spacious layout */
+  font-size: 16px; /* Larger font size for better readability */
+  color: #333; /* Default text color */
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth background and color transition */
 }
 
-.dropdown-menu .dropdown-item:hover {
-  background-color: #f8f9fa; /* Highlight color on hover */
+/* Change color of dropdown items on hover */
+.dropdown-item:hover {
+  background-color: #e9ecef; /* Lighter background on hover */
+  color: #007bff; /* Change text color on hover */
+  border-radius: 4px; /* Rounded corners on hover */
+}
+
+/* Style for the divider */
+.dropdown-divider {
+  border-top: 1px solid #e9ecef;
+  margin: 8px 0; /* Spacing around the divider */
 }

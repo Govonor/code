@@ -17,7 +17,7 @@ const Cart = () => {
       <div className="cart-empty">
         <h2>Your cart is currently empty.</h2>
         <p>It looks like you haven't added any items to your cart yet.</p>
-        <Link to="/products" className="btn btn-primary">Go to Products</Link>
+        <Link to="/ProductsList" className="btn btn-primary">Go to Products</Link>
       </div>
     );
   }

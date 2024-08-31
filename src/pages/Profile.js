@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Image, Spinner, InputGroup, FormControl } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './styles/Profile.css'; // Ensure this file exists for styling
 
 const Profile = () => {
@@ -7,22 +8,28 @@ const Profile = () => {
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    profilePicture: ''
   });
   
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   // Mock function to simulate fetching user data
   useEffect(() => {
-    // Fetch user data from API or local storage
     const fetchUserData = async () => {
+      setLoading(true);
       // Replace with actual API call
       const fetchedUser = {
-        name: 'John Doe',
-        email: 'john.doe@example.com'
+        name: '',
+        email: '',
+        profilePicture: ''
       };
       setUser(fetchedUser);
+      setLoading(false);
     };
 
     fetchUserData();
@@ -35,10 +42,23 @@ const Profile = () => {
     });
   };
 
+  const handlePasswordToggle = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setUser({
+        ...user,
+        profilePicture: URL.createObjectURL(file)
+      });
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate form data
     const newErrors = {};
     if (!user.name) newErrors.name = 'Name is required';
     if (!user.email) newErrors.email = 'Email is required';
@@ -49,12 +69,21 @@ const Profile = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      // Handle form submission
       console.log('User updated:', user);
-      // Replace this with an actual API call
       setSuccessMessage('Profile updated successfully!');
+      
+      // Navigate to the next page, e.g., a dashboard or profile summary page
+      navigate('/profile-summary'); // Replace with your desired route
     }
   };
+
+  if (loading) {
+    return (
+      <Container className="text-center">
+        <Spinner animation="border" variant="primary" />
+      </Container>
+    );
+  }
 
   return (
     <Container className="profile-container">
@@ -63,6 +92,19 @@ const Profile = () => {
           <h2 className="text-center">Profile</h2>
           {successMessage && <div className="alert alert-success">{successMessage}</div>}
           <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formProfilePicture">
+              <Form.Label>Profile Picture</Form.Label>
+              <div className="profile-picture-upload">
+                <Image src={user.profilePicture} roundedCircle width="100" />
+                <Form.Control
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="mt-2"
+                />
+              </div>
+            </Form.Group>
+            
             <Form.Group controlId="formName">
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -95,19 +137,24 @@ const Profile = () => {
             
             <Form.Group controlId="formPassword">
               <Form.Label>New Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Enter a new password "
-                name="password"
-                value={user.password}
-                onChange={handleChange}
-              />
+              <InputGroup>
+                <FormControl
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Enter a new password"
+                  name="password"
+                  value={user.password}
+                  onChange={handleChange}
+                />
+                <InputGroup.Text onClick={handlePasswordToggle} style={{ cursor: 'pointer' }}>
+                  {showPassword ? 'Hide' : 'Show'}
+                </InputGroup.Text>
+              </InputGroup>
             </Form.Group>
             
             <Form.Group controlId="formConfirmPassword">
               <Form.Label>Confirm New Password</Form.Label>
-              <Form.Control
-                type="password"
+              <FormControl
+                type={showPassword ? 'text' : 'password'}
                 placeholder="Confirm your new password"
                 name="confirmPassword"
                 value={user.confirmPassword}

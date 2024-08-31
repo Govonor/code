@@ -1,6 +1,6 @@
 .footer {
-  background-color: #343a40;
-  color: white;
+  background-color: #ff6f00; /* Orange background color */
+  color: white; /* White text color */
   padding: 2rem 1rem;
   text-align: center;
 }
@@ -15,7 +15,7 @@
 }
 
 .footer-links a {
-  color: #007bff;
+  color: #fff; /* Change link color to white for contrast */
   text-decoration: none;
   margin: 0 1rem;
 }
@@ -33,7 +33,7 @@
 }
 
 .footer-info a {
-  color: #007bff;
+  color: #fff; /* Change link color to white for contrast */
   text-decoration: none;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .social-media a {
-  color: #007bff;
+  color: #fff; /* Change link color to white for contrast */
   text-decoration: none;
   margin: 0 0.5rem;
 }

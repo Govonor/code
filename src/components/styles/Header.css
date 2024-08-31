@@ -1,59 +1,99 @@
-/* Header.css */
+
 .header-navbar {
-  background-color: #f8f9fa; /* Light background for the header */
-  border-bottom: 1px solid #e5e5e5; /* Light border for separation */
-  position: fixed; /* Fix the header to the top */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000; /* Ensure it sits on top of other content */
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Vertically center items */
-  padding: 0 15px; /* Add padding for better spacing */
+  background-color: #ff6f00; /* Orange background color for light mode */
+  border-bottom: 1px solid #e0e0e0; /* Light border for separation */
+  padding: 0.5rem 1rem; /* Padding for the navbar */
 }
 
+/* Dark mode styles */
+.header-navbar.navbar-dark {
+  background-color: #ff6f00; /* Orange background color for dark mode */
+  border-bottom: none; /* Remove border for dark mode */
+}
+
+/* Logo */
 .header-navbar .navbar-brand img {
-  max-width: 100px; /* Adjust logo size */
+  max-height: 100px; /* Adjust logo size */
+  object-fit: contain; /* Preserve aspect ratio */
 }
 
-.header-navbar .navbar-nav {
-  margin-right: auto; /* Push navigation links to the left */
+/* Navbar Toggle Button */
+.header-navbar .navbar-toggler {
+  border: none; /* Remove border from the toggle button */
 }
 
-.header-navbar .navbar-nav .nav-link {
-  color: #333; /* Default text color */
-  margin-left: 15px; /* Space between links */
+/* Navbar Links */
+.header-navbar .nav-link {
+  color: #fff; /* White text color for contrast */
+  margin-right: 1rem; /* Spacing between links */
+  font-size: 16px; /* Font size for links */
+  font-weight: 500; /* Slightly bolder text */
 }
 
-.header-navbar .navbar-nav .nav-link:hover {
-  color: #007bff; /* Highlight color on hover */
+/* Dark mode link color */
+.header-navbar.navbar-dark .nav-link {
+  color: #fff; /* White text color for dark mode */
 }
 
-.header-navbar .search-form {
-  display: flex;
-  align-items: center; /* Center the search input vertically */
+/* Navbar Dropdown */
+.header-navbar .nav-dropdown {
+  position: absolute; /* Position absolutely within navbar */
+  left: 0; /* Align to the left of the navbar */
 }
 
-.header-navbar .search-form .input-group {
-  max-width: 300px; /* Limit width of search input */
-}
-
-.header-navbar .ml-auto {
-  margin-left: auto; /* Push the dropdown and search form to the right */
-}
-
+/* Dropdown Menu Styles */
 .header-navbar .dropdown-menu {
-  right: 0; /* Align dropdown menu to the right */
-  left: auto; /* Override the default left alignment */
-  background-color: #ffffff; /* Background color of the dropdown */
-  border: 1px solid #ddd; /* Border color of the dropdown */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  background: linear-gradient(180deg, #fff, #f9f9f9); /* Gradient background */
+  min-width: 200px; /* Minimum width for dropdown menu */
+  margin-top: 0; /* Remove top margin */
+  padding: 0; /* Remove padding if needed */
+  position: absolute; /* Ensure dropdown menu is positioned absolutely */
+  top: 100%; /* Position below the toggle button */
+  left: 0; /* Align menu to the leftmost side */
 }
 
-.header-navbar .dropdown-menu .dropdown-item {
-  color: #333; /* Text color for items */
+/* Dropdown Item Styles */
+.header-navbar .dropdown-item {
+  padding: 12px 20px; /* Padding for items */
+  font-size: 14px; /* Font size */
+  color: #333; /* Default text color */
 }
 
-.header-navbar .dropdown-menu .dropdown-item:hover {
-  background-color: #f8f9fa; /* Highlight color on hover */
+/* Dropdown Item Hover Effect */
+.header-navbar .dropdown-item:hover {
+  background-color: #ffebcc; /* Lighter orange background on hover */
+  color: #ff6f00; /* Change text color to match navbar background */
+}
+
+/* Divider in Dropdown Menu */
+.header-navbar .dropdown-divider {
+  border-top: 1px solid #e9ecef; /* Divider color */
+  margin: 8px 0; /* Spacing around the divider */
+}
+
+/* Search Form */
+.search-form {
+  display: flex; /* Flexbox for alignment */
+  margin-left: auto; /* Push search form to the right */
+}
+
+.search-form .form-control {
+  border-radius: 4px 0 0 4px; /* Rounded corners for left side */
+  border: 1px solid #ced4da; /* Border color */
+}
+
+.search-form .btn-outline-success {
+  border-radius: 0 4px 4px 0; /* Rounded corners for right side */
+  border: 1px solid #28a745; /* Border color */
+  background-color: #fff; /* Background color */
+  color: #28a745; /* Text color */
+}
+
+/* Search Button Hover Effect */
+.search-form .btn-outline-success:hover {
+  background-color: #28a745; /* Background color on hover */
+  color: #fff; /* Text color on hover */
+  border-color: #28a745; /* Border color on hover */
 }
