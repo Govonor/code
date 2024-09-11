@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { CartContext } from './CartContext';
 import { Link } from 'react-router-dom';
-import './styles/Cart.css'; // Ensure you create and style this file
+import './styles/Cart.css';
 
 const Cart = () => {
-  // Use context
+  // Use contextn
   const { cart = [], removeFromCart, clearCart } = useContext(CartContext);
 
   if (!Array.isArray(cart)) {

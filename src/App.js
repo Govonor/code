@@ -1,15 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // Context Providers
 import { CartProvider } from './components/CartContext';
-import { AuthProvider } from './components/AuthContext';
+import { AuthProvider, useAuth } from './components/AuthContext';
 
 // Components
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Checkout from './components/Checkout';  // Correct path for Checkout
-import Cart from './components/Cart';  // Correct path for Cart
+import Checkout from './components/Checkout';
+import Cart from './components/Cart';
+import SearchBar from './components/SearchBar'; // Reintroduced SearchBar
+import FarmerProfile from './components/FarmerProfile';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -31,10 +33,27 @@ import Purchase from './pages/Purchase';
 // Global Styles
 import './App.css';
 
+// Private Route Component
+const PrivateRoute = ({ element, roles }) => {
+  const { user } = useAuth();
+  const isAuthorized = roles ? roles.includes(user?.role) : true;
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+
+  if (!isAuthorized) {
+    return <Navigate to="/" />;
+  }
+
+  return element;
+};
+
 const App = () => {
   return (
     <Router>
       <Header />
+      <SearchBar onSearch={(query) => console.log(query)} /> {/* Reintroduced SearchBar */}
       <main>
         <AuthProvider>
           <CartProvider>
@@ -42,20 +61,22 @@ const App = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/products" element={<ProductList />} />
               <Route path="/products/:id" element={<ProductDetail />} />
-              <Route path="/cart" element={<Cart />} />  {/* Updated path for Cart */}
+              <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/orders" element={<Orders />} />
+              <Route path="/profile" element={<PrivateRoute element={<Profile />} />} />
+              <Route path="/orders" element={<PrivateRoute element={<Orders />} />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<RegisterPage />} />
-              <Route path="/farmer-dashboard" element={<FarmerDashboard />} />
-              <Route path="/consumer-dashboard" element={<ConsumerDashboard />} />
+              <Route path="/farmer-dashboard" element={<PrivateRoute element={<FarmerDashboard />} roles={['farmer']} />} />
+              <Route path="/consumer-dashboard" element={<PrivateRoute element={<ConsumerDashboard />} roles={['consumer']} />} />
+              <Route path="/farmer-profile/:id" element={<PrivateRoute element={<FarmerProfile />} roles={['farmer']} />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/market" element={<Market />} />
               <Route path="/purchase" element={<Purchase />} />
+              <Route path="*" element={<div>Page Not Found</div>} />
             </Routes>
           </CartProvider>
         </AuthProvider>

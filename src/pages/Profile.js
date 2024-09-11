@@ -22,13 +22,14 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       setLoading(true);
-      // Replace with actual API call
-      const fetchedUser = {
-        name: '',
-        email: '',
-        profilePicture: ''
-      };
-      setUser(fetchedUser);
+      try {
+        // Replace with actual API call
+        const response = await fetch('/api/user');
+        const fetchedUser = await response.json();
+        setUser(fetchedUser);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
       setLoading(false);
     };
 
@@ -56,7 +57,7 @@ const Profile = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newErrors = {};
@@ -69,11 +70,21 @@ const Profile = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      console.log('User updated:', user);
-      setSuccessMessage('Profile updated successfully!');
-      
-      // Navigate to the next page, e.g., a dashboard or profile summary page
-      navigate('/profile-summary'); // Replace with your desired route
+      setLoading(true);
+      try {
+        // Replace with actual API call
+        await fetch('/api/user/update', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(user)
+        });
+        setSuccessMessage('Profile updated successfully!');
+        navigate('/profile-summary'); // Replace with your desired route
+      } catch (error) {
+        console.error('Error updating profile:', error);
+        setSuccessMessage('Failed to update profile.');
+      }
+      setLoading(false);
     }
   };
 
@@ -90,12 +101,12 @@ const Profile = () => {
       <Row className="justify-content-center">
         <Col md={6}>
           <h2 className="text-center">Profile</h2>
-          {successMessage && <div className="alert alert-success">{successMessage}</div>}
+          {successMessage && <div className={`alert ${successMessage.includes('success') ? 'alert-success' : 'alert-danger'}`}>{successMessage}</div>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formProfilePicture">
               <Form.Label>Profile Picture</Form.Label>
               <div className="profile-picture-upload">
-                <Image src={user.profilePicture} roundedCircle width="100" />
+                {user.profilePicture && <Image src={user.profilePicture} roundedCircle width="100" />}
                 <Form.Control
                   type="file"
                   accept="image/*"
@@ -166,8 +177,8 @@ const Profile = () => {
               </Form.Control.Feedback>
             </Form.Group>
             
-            <Button variant="primary" type="submit">
-              Update Profile
+            <Button variant="primary" type="submit" disabled={loading}>
+              {loading ? <Spinner animation="border" size="sm" /> : 'Update Profile'}
             </Button>
           </Form>
         </Col>

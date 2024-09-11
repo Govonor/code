@@ -5,6 +5,9 @@ import './styles/FeaturesSection.css';
 import beansImage from '../images/beans.jpeg';
 import kalesImage from '../images/kales.jpg';
 import farmerConsumerImage from '../images/farmer-consumer.jpg';
+import qualityImage from '../images/quality.jpg'; // Add new image imports
+import deliveryImage from '../images/delivery.jpg';
+import communityImage from '../images/community.jpg';
 
 const FeaturesSection = () => (
   <Container className="features-section">
@@ -34,6 +37,34 @@ const FeaturesSection = () => (
           <Card.Body>
             <Card.Title>Support Farmers</Card.Title>
             <Card.Text>Support local farmers and sustainable agriculture.</Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+      {/* New Features */}
+      <Col md={4} className="mb-4">
+        <Card className="feature-card">
+          <Card.Img variant="top" src={qualityImage} />
+          <Card.Body>
+            <Card.Title>High Quality</Card.Title>
+            <Card.Text>Our produce is carefully selected to ensure high quality and freshness.</Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col md={4} className="mb-4">
+        <Card className="feature-card">
+          <Card.Img variant="top" src={deliveryImage} />
+          <Card.Body>
+            <Card.Title>Fast Delivery</Card.Title>
+            <Card.Text>Experience quick and reliable delivery straight to your doorstep.</Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col md={4} className="mb-4">
+        <Card className="feature-card">
+          <Card.Img variant="top" src={communityImage} />
+          <Card.Body>
+            <Card.Title>Community Focused</Card.Title>
+            <Card.Text>We build strong relationships within the community to foster growth.</Card.Text>
           </Card.Body>
         </Card>
       </Col>

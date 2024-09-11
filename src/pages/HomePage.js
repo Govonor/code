@@ -1,7 +1,10 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import './HomePage.css'; // Ensure this path is correct
+import FeaturesSection from '../components/FeaturesSection'; // Correctly import the FeaturesSection component
 
+import product1 from '../images/tomatoes.jpg';
+import product2 from '../images/onions.jpg'; 
 const Homepage = () => {
   return (
     <div className="homepage-container">
@@ -20,26 +23,7 @@ const Homepage = () => {
       </div>
 
       {/* Features Section */}
-      <div className="features-section">
-        <h2>Why Choose Us?</h2>
-        <div className="feature-items">
-          <div className="feature-item">
-            <img src="/images/feature1.png" alt="Feature 1" />
-            <h3>Fresh Produce</h3>
-            <p>Get access to the freshest local produce directly from farmers.</p>
-          </div>
-          <div className="feature-item">
-            <img src="/images/feature2.png" alt="Feature 2" />
-            <h3>Fair Prices</h3>
-            <p>Enjoy fair prices by eliminating middlemen.</p>
-          </div>
-          <div className="feature-item">
-            <img src="/images/feature3.png" alt="Feature 3" />
-            <h3>Support Farmers</h3>
-            <p>Support local farmers and sustainable agriculture.</p>
-          </div>
-        </div>
-      </div>
+      <FeaturesSection /> {/* Use the FeaturesSection component */}
 
       {/* Testimonials Section */}
       <div className="testimonials-section">
@@ -51,7 +35,7 @@ const Homepage = () => {
                 "Ask Mkulima has transformed the way I buy fresh produce. The quality is excellent, and the prices are fair."
               </Card.Text>
               <Card.Footer>
-                <small className="text-muted">John Doe, Consumer</small>
+                <small className="text-muted">Ali Malala, Consumer</small>
               </Card.Footer>
             </Card.Body>
           </Card>
@@ -61,7 +45,7 @@ const Homepage = () => {
                 "Being a farmer on Ask Mkulima has increased my sales and connected me with more customers than ever before."
               </Card.Text>
               <Card.Footer>
-                <small className="text-muted">Jane Smith, Farmer</small>
+                <small className="text-muted">Fredrick Odhiambo, Farmer</small>
               </Card.Footer>
             </Card.Body>
           </Card>
@@ -73,7 +57,7 @@ const Homepage = () => {
         <h2>Featured Products</h2>
         <div className="featured-products">
           <Card className="product-card">
-            <Card.Img variant="top" src="/images/product1.jpg" />
+            <Card.Img variant="top" src={product1} />
             <Card.Body>
               <Card.Title>Tomato</Card.Title>
               <Card.Text>$3.00 per kg</Card.Text>
@@ -81,7 +65,7 @@ const Homepage = () => {
             </Card.Body>
           </Card>
           <Card className="product-card">
-            <Card.Img variant="top" src="/images/product2.jpg" />
+            <Card.Img variant="top" src={product2} />
             <Card.Body>
               <Card.Title>Onion</Card.Title>
               <Card.Text>$2.50 per kg</Card.Text>

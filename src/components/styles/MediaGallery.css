@@ -1,0 +1,25 @@
+.media-gallery {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+  
+  .media-gallery h2 {
+    color: #2c3e50;
+  }
+  
+  .media-gallery .gallery {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .media-gallery img {
+    width: 100%;
+    max-width: 300px; /* Adjust as needed */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  

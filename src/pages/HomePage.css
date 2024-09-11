@@ -1,136 +1,72 @@
-/* HomePage.css */
-
 .homepage-container {
-  text-align: center;
-  padding: 2rem;
+  font-family: Arial, sans-serif; /* Ensure consistent font styling */
 }
 
 .hero-section {
-  background-image: url('../images/hero-bg.jpg'); /* Correct relative path */
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  padding: 4rem 2rem;
-  border-radius: 0.5rem;
-  margin-bottom: 2rem;
+  position: relative;
+  background-image: url('../images/hero-background.jpg'); /* Path to your background image */
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+  color: white; /* Ensure text is readable on the background */
+  text-align: center; /* Center-align text */
+  padding: 100px 20px; /* Adjust padding to fit your design */
+  border-radius: 10px; /* Rounded corners for a softer look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
 }
 
 .hero-section h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 3rem; /* Large font size for the main heading */
+  margin-bottom: 20px; /* Space below the heading */
 }
 
 .hero-section p {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-size: 1.25rem; /* Slightly larger font size for the paragraph */
+  margin-bottom: 30px; /* Space below the paragraph */
 }
 
-.hero-buttons .btn {
-  margin: 0.5rem;
-}
-
-.features-section {
-  padding: 2rem;
-}
-
-.features-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.feature-items {
+.hero-buttons {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: center; /* Center-align buttons */
+  gap: 10px; /* Space between buttons */
 }
 
-.feature-item {
-  text-align: center;
-  margin: 1rem;
-  flex: 1;
-  max-width: 300px;
-}
-
-.feature-item img {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 1rem;
-}
-
-.feature-item h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.feature-item p {
-  font-size: 1rem;
-}
-
-.testimonials-section {
-  padding: 2rem;
-  background-color: #f8f9fa;
-}
-
-.testimonials-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+.testimonials-section, .featured-products-section, .newsletter-section {
+  padding: 20px;
 }
 
 .testimonials {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  gap: 20px; /* Space between testimonials */
+  justify-content: center; /* Center-align testimonials */
 }
 
 .testimonial-card {
-  width: 300px;
-  margin: 1rem;
-}
-
-.featured-products-section {
-  padding: 2rem;
-}
-
-.featured-products-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  width: 300px; /* Set a fixed width for the testimonial cards */
 }
 
 .featured-products {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  gap: 20px; /* Space between product cards */
+  justify-content: center; /* Center-align product cards */
 }
 
 .product-card {
-  width: 300px;
-  margin: 1rem;
-}
-
-.newsletter-section {
-  padding: 2rem;
-  background-color: #e9ecef;
-}
-
-.newsletter-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  width: 250px; /* Set a fixed width for the product cards */
 }
 
 .newsletter-form {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  gap: 10px; /* Space between input and button */
+  justify-content: center; /* Center-align the form */
 }
 
 .newsletter-form input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  border: 1px solid #ced4da;
+  padding: 10px;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 4px; /* Rounded corners for input */
 }
 
 .newsletter-form button {
-  font-size: 1rem;
+  padding: 10px 20px;
 }

@@ -1,40 +1,40 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
-// Create the context
-export const AuthContext = createContext();
+// Create the AuthContext
+const AuthContext = createContext();
 
-// Create a provider component
+// AuthProvider component
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null); // State to hold user information
+  const [loading, setLoading] = useState(true); // State to handle loading status
 
   useEffect(() => {
-    // Mock authentication check (replace with actual auth logic)
-    const fetchUser = async () => {
-      // Simulate user authentication (replace with actual API call)
-      const authenticatedUser = await new Promise((resolve) =>
-        setTimeout(() => resolve({ name: 'John Doe', email: 'john@example.com' }), 1000)
-      );
-      setUser(authenticatedUser);
-      setLoading(false);
-    };
-
-    fetchUser();
+    // Check if there's a user in localStorage on initial load
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+    setLoading(false);
   }, []);
 
-  const login = async (email, password) => {
-    // Implement your login logic here
-    setUser({ name: 'John Doe', email });
+  // Login function
+  const login = (userData) => {
+    setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData)); // Persist user to localStorage
   };
 
+  // Logout function
   const logout = () => {
-    // Implement your logout logic here
     setUser(null);
+    localStorage.removeItem('user'); // Remove user from localStorage
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );
 };
+
+// Custom hook to use the AuthContext
+export const useAuth = () => useContext(AuthContext);

@@ -1,99 +1,79 @@
-
+/* General Navbar Styles */
 .header-navbar {
-  background-color: #ff6f00; /* Orange background color for light mode */
-  border-bottom: 1px solid #e0e0e0; /* Light border for separation */
-  padding: 0.5rem 1rem; /* Padding for the navbar */
+  background-color: #ff8c00; /* Orange background color */
+  border-bottom: 1px solid #dee2e6; /* Light border at the bottom */
+  padding: 10px 20px; /* Increase the padding to make the header taller */
 }
 
-/* Dark mode styles */
 .header-navbar.navbar-dark {
-  background-color: #ff6f00; /* Orange background color for dark mode */
-  border-bottom: none; /* Remove border for dark mode */
+  background-color: #e07b00; /* Slightly darker orange for dark mode */
 }
 
-/* Logo */
+.header-navbar.navbar-light {
+  background-color: #ff9c00; /* Slightly lighter orange for light mode */
+}
+
+/* Navbar Brand Styles */
 .header-navbar .navbar-brand img {
-  max-height: 100px; /* Adjust logo size */
-  object-fit: contain; /* Preserve aspect ratio */
+  max-height: 50px; /* Increase the maximum height of the logo image */
+  object-fit: contain; /* Ensure the image maintains its aspect ratio */
 }
 
-/* Navbar Toggle Button */
+/* Navbar Toggle Button Styles */
 .header-navbar .navbar-toggler {
-  border: none; /* Remove border from the toggle button */
+  border: none; /* Remove default border */
+  box-shadow: none; /* Remove default shadow */
 }
 
-/* Navbar Links */
+/* Navbar Collapse Styles */
+.header-navbar .navbar-collapse {
+  justify-content: flex-end; /* Align nav items to the right */
+}
+
+/* Navbar Link Styles */
 .header-navbar .nav-link {
-  color: #fff; /* White text color for contrast */
-  margin-right: 1rem; /* Spacing between links */
-  font-size: 16px; /* Font size for links */
-  font-weight: 500; /* Slightly bolder text */
+  color: #ffffff; /* White text color for contrast against orange background */
+  margin: 0 15px; /* Increase space between links */
 }
 
-/* Dark mode link color */
-.header-navbar.navbar-dark .nav-link {
-  color: #fff; /* White text color for dark mode */
+.header-navbar .nav-link:hover {
+  color: #ffefdb; /* Light color on hover for better visibility */
+  text-decoration: underline; /* Underline on hover */
 }
 
-/* Navbar Dropdown */
+/* Navbar Dropdown Styles */
 .header-navbar .nav-dropdown {
-  position: absolute; /* Position absolutely within navbar */
-  left: 0; /* Align to the left of the navbar */
+  position: relative; /* Relative positioning for dropdown */
 }
 
-/* Dropdown Menu Styles */
-.header-navbar .dropdown-menu {
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
-  background: linear-gradient(180deg, #fff, #f9f9f9); /* Gradient background */
-  min-width: 200px; /* Minimum width for dropdown menu */
-  margin-top: 0; /* Remove top margin */
-  padding: 0; /* Remove padding if needed */
-  position: absolute; /* Ensure dropdown menu is positioned absolutely */
-  top: 100%; /* Position below the toggle button */
-  left: 0; /* Align menu to the leftmost side */
+.header-navbar .nav-dropdown .dropdown-menu {
+  border-radius: 0; /* Square corners for dropdown menu */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for dropdown */
 }
 
-/* Dropdown Item Styles */
-.header-navbar .dropdown-item {
-  padding: 12px 20px; /* Padding for items */
-  font-size: 14px; /* Font size */
-  color: #333; /* Default text color */
+.header-navbar .nav-dropdown .dropdown-item {
+  color: #495057; /* Default text color for dropdown items */
 }
 
-/* Dropdown Item Hover Effect */
-.header-navbar .dropdown-item:hover {
-  background-color: #ffebcc; /* Lighter orange background on hover */
-  color: #ff6f00; /* Change text color to match navbar background */
+.header-navbar .nav-dropdown .dropdown-item:hover {
+  background-color: #f1f1f1; /* Background color on hover */
+  color: #007bff; /* Text color on hover */
 }
 
-/* Divider in Dropdown Menu */
-.header-navbar .dropdown-divider {
-  border-top: 1px solid #e9ecef; /* Divider color */
-  margin: 8px 0; /* Spacing around the divider */
+/* Cart Icon Styles */
+.header-navbar .cart-icon {
+  color: #ffffff; /* White color for cart icon */
+  font-size: 1.5rem; /* Size of the icon */
+  margin-left: 20px; /* Increase space from other links */
 }
 
-/* Search Form */
-.search-form {
-  display: flex; /* Flexbox for alignment */
-  margin-left: auto; /* Push search form to the right */
+.header-navbar .cart-icon:hover {
+  color: #ffefdb; /* Light color on hover */
 }
 
-.search-form .form-control {
-  border-radius: 4px 0 0 4px; /* Rounded corners for left side */
-  border: 1px solid #ced4da; /* Border color */
-}
-
-.search-form .btn-outline-success {
-  border-radius: 0 4px 4px 0; /* Rounded corners for right side */
-  border: 1px solid #28a745; /* Border color */
-  background-color: #fff; /* Background color */
-  color: #28a745; /* Text color */
-}
-
-/* Search Button Hover Effect */
-.search-form .btn-outline-success:hover {
-  background-color: #28a745; /* Background color on hover */
-  color: #fff; /* Text color on hover */
-  border-color: #28a745; /* Border color on hover */
+/* Adjustments for Smaller Screens */
+@media (max-width: 767px) {
+  .header-navbar .navbar-collapse {
+    text-align: center; /* Center align nav items on smaller screens */
+  }
 }

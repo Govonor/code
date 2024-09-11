@@ -1,5 +1,91 @@
-.home-page {
-    text-align: center;
-    margin: 20px;
-  }
-  
+/* HomePage.css */
+
+.homepage-container {
+  padding: 20px;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 50px 20px;
+  background: #f8f9fa;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+}
+
+.features-section {
+  padding: 40px 20px;
+}
+
+.feature-items {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  text-align: center;
+  flex: 1;
+  max-width: 300px;
+  margin: 10px;
+}
+
+.feature-item img {
+  width: 100%;
+  height: auto;
+}
+
+.testimonials-section {
+  padding: 40px 20px;
+  background: #f1f1f1;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  max-width: 500px;
+  margin: 10px;
+}
+
+.featured-products-section {
+  padding: 40px 20px;
+}
+
+.featured-products {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  max-width: 300px;
+  margin: 10px;
+}
+
+.newsletter-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f8f9fa;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter-form input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.newsletter-form button {
+  padding: 10px 20px;
+}

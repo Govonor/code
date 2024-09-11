@@ -1,21 +1,12 @@
-import React, { useState } from 'react';
-import { Navbar, Nav, NavDropdown, Form, Button, InputGroup, FormControl } from 'react-bootstrap';
+import React from 'react';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Dropdown from './Dropdown'; // Ensure this path is correct
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import './styles/Header.css';
 
 const Header = ({ isDark = false }) => {
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    console.log('Searching for:', searchQuery);
-  };
-
   return (
     <Navbar className={`header-navbar ${isDark ? 'navbar-dark' : 'navbar-light'}`} expand="lg" variant={isDark ? 'dark' : 'light'}>
       <Navbar.Brand as={Link} to="/">
@@ -38,26 +29,16 @@ const Header = ({ isDark = false }) => {
               </NavDropdown.Item>
             </NavDropdown>
           )}
-          <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
           <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
           <Nav.Link as={Link} to="/login">Login</Nav.Link>
           <Nav.Link as={Link} to="/register">Register</Nav.Link>
           {/* Add Dropdown component here */}
           <Dropdown />
+          {/* Cart Icon */}
+          <Nav.Link as={Link} to="/cart" className="cart-icon">
+            <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+          </Nav.Link>
         </Nav>
-        <Form inline onSubmit={handleSearchSubmit} className="search-form">
-          <InputGroup>
-            <FormControl
-              type="text"
-              placeholder="Search"
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
-            <InputGroup.Text>
-              <Button variant="outline-success" type="submit">Search</Button>
-            </InputGroup.Text>
-          </InputGroup>
-        </Form>
       </Navbar.Collapse>
     </Navbar>
   )

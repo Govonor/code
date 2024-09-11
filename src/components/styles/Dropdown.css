@@ -1,4 +1,9 @@
-/* Styles for the dropdown toggle button */
+
+.full-width-dropdown {
+  position: relative;
+}
+
+/* Styles for Dropdown Toggle Button */
 #dropdown-basic {
   display: inline-flex;
   align-items: center;
@@ -8,12 +13,13 @@
   cursor: pointer;
   padding: 0;
   outline: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 /* Add a subtle scale effect on hover */
 #dropdown-basic:hover {
   transform: scale(1.1);
+  color: #007bff; /* Color change on hover */
 }
 
 /* Style for the SVG icon */
@@ -30,20 +36,20 @@
   transform: rotate(90deg); /* Rotate icon on hover */
 }
 
-/* Style for the dropdown menu */
-.dropdown-menu {
-  border-radius: 8px; /* Increased border-radius for more rounded corners */
+.full-width-menu {
+  border-radius: 8px; /* Rounded corners for dropdown menu */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
   padding: 0;
   margin: 0;
   position: absolute;
   top: 100%; /* Position below the toggle */
-  left: 0; /* Align menu to the left of the toggle */
+  left: 0; /* Align menu to the left */
   width: 100vw; /* Full viewport width */
   max-width: 100%; /* Ensure it doesn’t exceed viewport width */
   box-sizing: border-box; /* Include padding and border in element’s total width and height */
   background: linear-gradient(180deg, #fff, #f9f9f9); /* Gradient background */
   border: 1px solid #e0e0e0; /* Subtle border for definition */
+  z-index: 1000; /* Ensure it appears above other elements */
 }
 
 /* Style for dropdown items */
@@ -56,15 +62,13 @@
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth background and color transition */
 }
 
-/* Change color of dropdown items on hover */
 .dropdown-item:hover {
-  background-color: #e9ecef; /* Lighter background on hover */
-  color: #007bff; /* Change text color on hover */
-  border-radius: 4px; /* Rounded corners on hover */
+  background-color: #e9ecef; 
+  color: #007bff; 
+  border-radius: 4px; 
 }
 
-/* Style for the divider */
 .dropdown-divider {
   border-top: 1px solid #e9ecef;
-  margin: 8px 0; /* Spacing around the divider */
+  margin: 8px 0; 
 }

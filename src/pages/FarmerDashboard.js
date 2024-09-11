@@ -6,20 +6,36 @@ import AddProduceForm from '../components/AddProduceForm';
 import SalesStatistics from '../components/SalesStatistics';
 import UpcomingEvents from '../components/UpcomingEvents';
 import Messages from '../components/Messages';
+import Notifications from '../components/Notifications';
+import InventoryManagement from '../components/InventoryManagement';
+import MarketTrends from '../components/MarketTrends';
+import FinancialOverview from '../components/FinancialOverview';
+import FeedbackForm from '../components/FeedbackForm';
 import './FarmerDashboard.css';
 
 function FarmerDashboard() {
   const [produce, setProduce] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/produce') // Replace with your backend API endpoint
-      .then(response => setProduce(response.data))
-      .catch(error => console.error('Error fetching produce:', error));
+      .then(response => {
+        setProduce(response.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching produce:', error);
+        setLoading(false);
+      });
   }, []);
 
   const handleAddProduce = (newProduce) => {
     setProduce([...produce, newProduce]);
   };
+
+  if (loading) {
+    return <div className="loading">Loading...</div>;
+  }
 
   return (
     <div className="farmer-dashboard">
@@ -34,16 +50,40 @@ function FarmerDashboard() {
           <FarmerProfile />
         </section>
         <section className="dashboard-section">
+          <h2>Add New Produce</h2>
           <AddProduceForm onAddProduce={handleAddProduce} />
         </section>
         <section className="dashboard-section">
+          <h2>Sales Statistics</h2>
           <SalesStatistics />
         </section>
         <section className="dashboard-section">
+          <h2>Upcoming Events</h2>
           <UpcomingEvents />
         </section>
         <section className="dashboard-section">
+          <h2>Messages</h2>
           <Messages />
+        </section>
+        <section className="dashboard-section">
+          <h2>Notifications</h2>
+          <Notifications />
+        </section>
+        <section className="dashboard-section">
+          <h2>Inventory Management</h2>
+          <InventoryManagement />
+        </section>
+        <section className="dashboard-section">
+          <h2>Market Trends</h2>
+          <MarketTrends />
+        </section>
+        <section className="dashboard-section">
+          <h2>Financial Overview</h2>
+          <FinancialOverview />
+        </section>
+        <section className="dashboard-section">
+          <h2>Feedback</h2>
+          <FeedbackForm />
         </section>
       </div>
     </div>

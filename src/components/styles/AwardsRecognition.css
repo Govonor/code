@@ -1,0 +1,21 @@
+.awards-recognition {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+  
+  .awards-recognition h2 {
+    color: #2c3e50;
+  }
+  
+  .awards-recognition p {
+    line-height: 1.6;
+  }
+  
+  .awards-recognition ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  

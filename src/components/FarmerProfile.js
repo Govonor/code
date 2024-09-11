@@ -1,53 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom'; // Hook for getting route parameters
+import './styles/FarmerProfile.css'; // Ensure this CSS file exists
 
 const FarmerProfile = () => {
-  // Initialize state
-  const [profile, setProfile] = useState({
-    name: '',
-    email: '',
-    phone: ''
-  });
+  const { id } = useParams(); // Get the farmer ID from route parameters
+  const [farmer, setFarmer] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Handler to update profile information
-  const handleProfileChange = (e) => {
-    const { name, value } = e.target;
-    setProfile(prevProfile => ({
-      ...prevProfile,
-      [name]: value
-    }));
-  };
+  useEffect(() => {
+    const fetchFarmer = async () => {
+      try {
+        const response = await axios.get(`/api/farmers/${id}`);
+        setFarmer(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching farmer data:', error);
+        setError('Failed to load farmer profile.');
+        setLoading(false);
+      }
+    };
 
-  // Handler to save profile information (e.g., submit to API)
-  const handleSave = () => {
-    // Example: Save profile data to a server or local storage
-    console.log('Profile saved:', profile);
-  };
+    fetchFarmer();
+  }, [id]);
+
+  if (loading) return <div className="loading-indicator">Loading...</div>; // Improved loading state
+  if (error) return <div className="error-message">{error}</div>; // Improved error handling
 
   return (
-    <div>
-      <h2>Farmer Profile</h2>
-      <input
-        type="text"
-        name="name"
-        value={profile.name}
-        onChange={handleProfileChange}
-        placeholder="Name"
-      />
-      <input
-        type="email"
-        name="email"
-        value={profile.email}
-        onChange={handleProfileChange}
-        placeholder="Email"
-      />
-      <input
-        type="text"
-        name="phone"
-        value={profile.phone}
-        onChange={handleProfileChange}
-        placeholder="Phone"
-      />
-      <button onClick={handleSave}>Save Profile</button>
+    <div className="farmer-profile">
+      <h1>{farmer.name}</h1>
+      <p>{farmer.bio}</p>
+      <p><strong>Location:</strong> {farmer.location}</p>
+      <h2>Products:</h2>
+      <ul>
+        {farmer.products.map(product => (
+          <li key={product.id}>
+            <strong>{product.name}</strong> - ${product.price}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

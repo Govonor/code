@@ -1,21 +1,32 @@
+// src/components/Map.js
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import './styles/Map.css'; // Import component-specific CSS
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+
+const containerStyle = {
+  width: '100%',
+  height: '400px'
+};
+
+const center = {
+  lat: -1.286389,
+  lng: 36.817223
+};
 
 const Map = ({ location }) => {
   return (
-    <MapContainer center={location} zoom={13} style={{ height: '500px', width: '100%' }}>
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      <Marker position={location}>
-        <Popup>
-          Location
-        </Popup>
-      </Marker>
-    </MapContainer>
+    <LoadScript
+      googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY"
+    >
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+      >
+        {location && (
+          <Marker position={location} />
+        )}
+      </GoogleMap>
+    </LoadScript>
   );
 };
 

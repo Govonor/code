@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaFacebookF, FaInstagram, FaYoutube, FaTiktok } from 'react-icons/fa';
+import { SiX } from 'react-icons/si'; // Import the X icon from Simple Icons
 import './styles/Footer.css';
 
 const Footer = () => (
@@ -15,12 +17,24 @@ const Footer = () => (
       <div className="footer-info">
         <p>&copy; 2024 Ask Mkulima. All rights reserved.</p>
         <p>
-          Contact us: <a href="mailto:info@askmkulima.com">info@askmkulima.com</a>
+          Contact us: <a href="mailto:info@askmkulima.com">info@askmkulimakenya.com</a>
         </p>
         <div className="social-media">
-          <a href="https://facebook.com/askmkulima" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://twitter.com/askmkulima" target="_blank" rel="noopener noreferrer">Twitter</a>
-          <a href="https://instagram.com/askmkulima" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://facebook.com/askmkulimakenya" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <FaFacebookF size={24} />
+          </a>
+          <a href="https://x.com/askmkulimakenya" target="_blank" rel="noopener noreferrer" aria-label="X">
+            <SiX size={24} />
+          </a>
+          <a href="https://instagram.com/askmkulimakenya" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <FaInstagram size={24} />
+          </a>
+          <a href="https://youtube.com/askmkulimakenya" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <FaYoutube size={24} />
+          </a>
+          <a href="https://tiktok.com/@askmkulimakenya" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <FaTiktok size={24} />
+          </a>
         </div>
       </div>
     </div>

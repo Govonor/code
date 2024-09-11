@@ -3,10 +3,15 @@ import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './styles/Market.css';
 
+// Import images
+import tomatoesImage from '../images/tomatoes.jpg';
+import kalesImage from '../images/kales.jpg';
+import onionsImage from '../images/onions.jpg';
+
 const products = [
-  { id: 1, name: 'Tomatoes', price: 300, image: '/images/tomatoes.jpg' },
-  { id: 2, name: 'Potatoes', price: 200, image: '/images/kales.jpg' },
-  { id: 3, name: 'Onions', price: 150, image: '/images/onions.jpg' },
+  { id: 1, name: 'Tomatoes', price: 300, image: tomatoesImage },
+  { id: 2, name: 'Kales', price: 200, image: kalesImage },  // Corrected the typo here
+  { id: 3, name: 'Onions', price: 150, image: onionsImage },
   // Add more products as needed
 ];
 
