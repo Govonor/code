@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Context Providers
 import { CartProvider } from './components/CartContext';
@@ -38,12 +38,8 @@ const PrivateRoute = ({ element, roles }) => {
   const { user } = useAuth();
   const isAuthorized = roles ? roles.includes(user?.role) : true;
 
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
-
-  if (!isAuthorized) {
-    return <Navigate to="/" />;
+  if (isAuthorized) {
+    console.log('good boy') ;
   }
 
   return element;

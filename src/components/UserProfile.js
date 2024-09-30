@@ -3,9 +3,9 @@ import React from 'react';
 const UserProfile = () => {
   // In a real app, profile details would be fetched from an API and stored in state
   const user = {
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    address: '1234 Elm Street, Springfield, IL'
+    name: ' ',
+    email: ' ',
+    address: ' '
   };
 
   return (

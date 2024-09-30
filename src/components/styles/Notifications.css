@@ -1,25 +1,27 @@
+/* Notifications.css */
+
 .notifications {
-    padding: 1rem;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-  }
-  
-  .notifications h3 {
-    margin-bottom: 1rem;
-  }
-  
-  .notifications ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .notifications li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .notifications li:last-child {
-    border-bottom: none;
-  }
-  
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.notification-item {
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.notification-item:hover {
+  background-color: #e7e7e7;
+}
+
+.unread {
+  background-color: #f0f8ff; /* Light blue for unread */
+}
+
+.read {
+  background-color: #e9ecef; /* Gray for read */
+}

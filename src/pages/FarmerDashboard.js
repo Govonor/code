@@ -11,13 +11,17 @@ import InventoryManagement from '../components/InventoryManagement';
 import MarketTrends from '../components/MarketTrends';
 import FinancialOverview from '../components/FinancialOverview';
 import FeedbackForm from '../components/FeedbackForm';
+import DeliverySelection from '../components/DeliverySelection'; // New import
 import './FarmerDashboard.css';
 
 function FarmerDashboard() {
   const [produce, setProduce] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [orders, setOrders] = useState([]); // To manage orders
+  const [deliveryOptions, setDeliveryOptions] = useState([]); // To manage delivery options
 
   useEffect(() => {
+    // Fetch produce data
     axios.get('http://localhost:5000/api/produce') // Replace with your backend API endpoint
       .then(response => {
         setProduce(response.data);
@@ -26,6 +30,24 @@ function FarmerDashboard() {
       .catch(error => {
         console.error('Error fetching produce:', error);
         setLoading(false);
+      });
+      
+    // Fetch orders data
+    axios.get('http://localhost:5000/api/orders') // Replace with your backend API endpoint
+      .then(response => {
+        setOrders(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching orders:', error);
+      });
+
+    // Fetch delivery options
+    axios.get('http://localhost:5000/api/delivery-options') // Replace with your backend API endpoint
+      .then(response => {
+        setDeliveryOptions(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching delivery options:', error);
       });
   }, []);
 
@@ -43,7 +65,7 @@ function FarmerDashboard() {
       <div className="dashboard-sections">
         <section className="dashboard-section">
           <h2>Your Orders</h2>
-          <OrderList />
+          <OrderList orders={orders} />
         </section>
         <section className="dashboard-section">
           <h2>Your Profile</h2>
@@ -84,6 +106,13 @@ function FarmerDashboard() {
         <section className="dashboard-section">
           <h2>Feedback</h2>
           <FeedbackForm />
+        </section>
+        <section className="dashboard-section">
+          <h2>Delivery Management</h2>
+          <DeliverySelection 
+            orders={orders} 
+            deliveryOptions={deliveryOptions} 
+          />
         </section>
       </div>
     </div>

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import './HomePage.css'; // Ensure this path is correct
-import FeaturesSection from '../components/FeaturesSection'; // Correctly import the FeaturesSection component
-
+import FeaturesSection from '../components/FeaturesSection'; 
 import product1 from '../images/tomatoes.jpg';
 import product2 from '../images/onions.jpg'; 
 const Homepage = () => {

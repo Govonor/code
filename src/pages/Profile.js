@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Container, Row, Col, Image, Spinner, InputGroup, FormControl } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './styles/Profile.css'; // Ensure this file exists for styling
+import { Form, Button, Container, Row, Col, Image, Spinner, InputGroup, FormControl, Alert } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import './styles/Profile.css';
 
 const Profile = () => {
   const [user, setUser] = useState({
@@ -11,19 +11,18 @@ const Profile = () => {
     confirmPassword: '',
     profilePicture: ''
   });
-  
+
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
-  // Mock function to simulate fetching user data
   useEffect(() => {
     const fetchUserData = async () => {
       setLoading(true);
       try {
-        // Replace with actual API call
+        // Replace with your API endpoint
         const response = await fetch('/api/user');
         const fetchedUser = await response.json();
         setUser(fetchedUser);
@@ -72,7 +71,7 @@ const Profile = () => {
     if (Object.keys(newErrors).length === 0) {
       setLoading(true);
       try {
-        // Replace with actual API call
+        // Replace with your API endpoint
         await fetch('/api/user/update', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -101,7 +100,11 @@ const Profile = () => {
       <Row className="justify-content-center">
         <Col md={6}>
           <h2 className="text-center">Profile</h2>
-          {successMessage && <div className={`alert ${successMessage.includes('success') ? 'alert-success' : 'alert-danger'}`}>{successMessage}</div>}
+          {successMessage && (
+            <Alert variant={successMessage.includes('success') ? 'success' : 'danger'}>
+              {successMessage}
+            </Alert>
+          )}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formProfilePicture">
               <Form.Label>Profile Picture</Form.Label>

@@ -1,0 +1,12 @@
+.sales-statistics {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #0d0281;
+  }
+  
+  .loading, .error {
+    color: red;
+    font-weight: bold;
+  }
+  

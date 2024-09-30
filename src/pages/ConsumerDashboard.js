@@ -1,5 +1,3 @@
-// src/pages/ConsumerDashboard.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import OrderList from '../components/OrderList';
@@ -8,6 +6,8 @@ import UserProfile from '../components/UserProfile';
 import RecommendedProduce from '../components/RecommendedProduce';
 import RecentReviews from '../components/RecentReviews';
 import SpecialOffers from '../components/SpecialOffers';
+import OrderStatus from '../components/OrderStatus'; 
+import Map from '../components/Map'; // Use the Map component for locations
 import './styles/ConsumerDashboard.css';
 
 function ConsumerDashboard() {
@@ -17,38 +17,38 @@ function ConsumerDashboard() {
   const [recommendedProduce, setRecommendedProduce] = useState([]);
   const [recentReviews, setRecentReviews] = useState([]);
   const [specialOffers, setSpecialOffers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    // Fetch orders
-    axios.get('http://localhost:5000/api/orders') // Replace with your backend API endpoint
-      .then(response => setOrders(response.data))
-      .catch(error => console.error('Error fetching orders:', error));
+    const fetchData = async () => {
+      try {
+        const [orderResponse, wishlistResponse, profileResponse, produceResponse, reviewsResponse, offersResponse] = await Promise.all([
+          axios.get('http://localhost:5000/api/orders'),
+          axios.get('http://localhost:5000/api/wishlist'),
+          axios.get('http://localhost:5000/api/user-profile'),
+          axios.get('http://localhost:5000/api/recommended-produce'),
+          axios.get('http://localhost:5000/api/recent-reviews'),
+          axios.get('http://localhost:5000/api/special-offers')
+        ]);
+        setOrders(orderResponse.data);
+        setWishlist(wishlistResponse.data);
+        setUserProfile(profileResponse.data);
+        setRecommendedProduce(produceResponse.data);
+        setRecentReviews(reviewsResponse.data);
+        setSpecialOffers(offersResponse.data);
+      } catch (err) {
+        setError('Error fetching data');
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    // Fetch wishlist
-    axios.get('http://localhost:5000/api/wishlist') // Replace with your backend API endpoint
-      .then(response => setWishlist(response.data))
-      .catch(error => console.error('Error fetching wishlist:', error));
-
-    // Fetch user profile
-    axios.get('http://localhost:5000/api/user-profile') // Replace with your backend API endpoint
-      .then(response => setUserProfile(response.data))
-      .catch(error => console.error('Error fetching user profile:', error));
-
-    // Fetch recommended produce
-    axios.get('http://localhost:5000/api/recommended-produce') // Replace with your backend API endpoint
-      .then(response => setRecommendedProduce(response.data))
-      .catch(error => console.error('Error fetching recommended produce:', error));
-
-    // Fetch recent reviews
-    axios.get('http://localhost:5000/api/recent-reviews') // Replace with your backend API endpoint
-      .then(response => setRecentReviews(response.data))
-      .catch(error => console.error('Error fetching recent reviews:', error));
-
-    // Fetch special offers
-    axios.get('http://localhost:5000/api/special-offers') // Replace with your backend API endpoint
-      .then(response => setSpecialOffers(response.data))
-      .catch(error => console.error('Error fetching special offers:', error));
+    fetchData();
   }, []);
+
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">{error}</div>;
 
   return (
     <div className="consumer-dashboard">
@@ -57,6 +57,8 @@ function ConsumerDashboard() {
         <section className="dashboard-section">
           <h2>Your Orders</h2>
           <OrderList orders={orders} />
+          <OrderStatus orders={orders} />
+          <Map orders={orders} /> {/* Use Map component for order locations */}
         </section>
         <section className="dashboard-section">
           <h2>Your Wishlist</h2>

@@ -1,0 +1,48 @@
+.market-trends {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+  }
+  
+  .market-trends h3 {
+    margin-bottom: 10px;
+  }
+  
+  .market-trends ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .market-trends li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .market-trends .trend {
+    font-weight: bold;
+  }
+  
+  .market-trends .increasing {
+    color: green;
+  }
+  
+  .market-trends .stable {
+    color: orange;
+  }
+  
+  .market-trends .decreasing {
+    color: red;
+  }
+  
+  .loading {
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+  }
+  

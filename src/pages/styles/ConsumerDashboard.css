@@ -1,75 +1,32 @@
-/* General styling for the consumer dashboard container */
 .consumer-dashboard {
-    padding: 1rem;
-    background-color: #f8f9fa;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Flex container for the dashboard sections */
-  .dashboard-sections {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  /* Individual section styling */
-  .dashboard-section {
-    flex: 1 1 calc(33.333% - 1rem); /* Three columns layout with gaps */
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-  }
-  
-  /* Hover effect for sections */
-  .dashboard-section:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-4px);
-  }
-  
-  /* Header styling for each section */
-  .dashboard-section h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  /* Styles for section content */
-  .dashboard-section p {
-    margin: 0;
-    color: #666;
-    line-height: 1.5;
-  }
-  
-  /* Button styling */
-  .btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    background-color: #007bff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-  }
-  
-  /* Responsive design for smaller screens */
-  @media (max-width: 768px) {
-    .dashboard-section {
-      flex: 1 1 100%; /* Full width on smaller screens */
-    }
-  }
-  
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.dashboard-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns layout */
+  gap: 20px;
+}
+
+.dashboard-section {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+h1 {
+  color: #333;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.loading, .error {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}

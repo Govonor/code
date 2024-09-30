@@ -1,95 +1,23 @@
-/* Container for profile page */
+/* Profile.css */
+
 .profile-container {
-  padding: 2rem;
-  background-color: #f8f9fa; /* Light background color for a clean look */
-  border-radius: 8px; /* Rounded corners for container */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-top: 20px;
 }
 
-/* Header styling */
-.profile-container h2 {
-  margin-bottom: 1.5rem;
-  color: #343a40; /* Dark text color for readability */
-  font-size: 2rem;
-  font-weight: 600; /* Bold text */
-}
-
-/* Profile picture upload section */
 .profile-picture-upload {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
 }
 
 .profile-picture-upload img {
-  border: 2px solid #007bff; /* Border color around the image */
-  border-radius: 50%; /* Make the image circular */
+  margin-bottom: 10px;
 }
 
-.profile-picture-upload .form-control {
-  margin-left: 1rem; /* Space between image and file input */
+button {
+  border-radius: 5px;
 }
 
-/* Form styling */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-label {
-  font-weight: 500; /* Slightly bolder text for labels */
-  color: #495057; /* Darker text color */
-}
-
-.form-control {
-  border-radius: 4px; /* Rounded corners for form controls */
-  border: 1px solid #ced4da; /* Light border color */
-}
-
-.form-control:focus {
-  border-color: #007bff; /* Border color on focus */
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Subtle shadow on focus */
-}
-
-.form-control.is-invalid {
-  border-color: #dc3545; /* Red border for invalid input */
-}
-
-.form-control-feedback {
-  color: #dc3545; /* Red color for error messages */
-}
-
-/* Button styling */
-button[type="submit"] {
-  background-color: #007bff; /* Primary button color */
-  border: none; /* Remove default border */
-  border-radius: 4px; /* Rounded corners for the button */
-  color: #fff; /* White text color */
-  font-weight: 600; /* Bold text */
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3; /* Darker shade on hover */
-  color: #fff; /* Ensure text color remains white */
-  cursor: pointer; /* Pointer cursor on hover */
-}
-
-button[type="submit"]:focus {
-  outline: none; /* Remove default focus outline */
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Focus shadow effect */
-}
-
-/* Success message */
-.alert-success {
-  background-color: #d4edda; /* Light green background */
-  color: #155724; /* Dark green text color */
-  border: 1px solid #c3e6cb; /* Light green border */
-  border-radius: 4px; /* Rounded corners */
-  padding: 0.75rem 1.25rem; /* Padding for the alert */
-  margin-bottom: 1.5rem; /* Space below the alert */
-}
-
-/* Spinner */
-.spinner-border {
-  border-top-color: #007bff; /* Primary color for spinner */
+button:hover {
+  text-decoration: underline;
 }

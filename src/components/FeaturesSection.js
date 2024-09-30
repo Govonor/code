@@ -5,7 +5,7 @@ import './styles/FeaturesSection.css';
 import beansImage from '../images/beans.jpeg';
 import kalesImage from '../images/kales.jpg';
 import farmerConsumerImage from '../images/farmer-consumer.jpg';
-import qualityImage from '../images/quality.jpg'; // Add new image imports
+import qualityImage from '../images/quality.jpg'; 
 import deliveryImage from '../images/delivery.jpg';
 import communityImage from '../images/community.jpg';
 
