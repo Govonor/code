@@ -63,7 +63,7 @@ const Register = () => {
 
     try {
       // Post registration data to the backend API
-      await axios.post('http://localhost:5000/api/auth/register', formData);
+      await axios.post('http://localhost:5000/ask_mkulima/signup', formData);
 
       // Redirect based on user role (you might need to adapt this based on your backend response)
       if (formData.role === 'consumer') {

@@ -1,14 +1,14 @@
 const express = require('express');
 const cors = require('cors');
-const mysql = require('mysql');
+const { createConnection } = require('mysql');
 const bcrypt = require('bcrypt'); // Import bcrypt
-require('dotenv').config(); 
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const db = mysql.createConnection({
+const db = createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
@@ -18,7 +18,7 @@ const db = mysql.createConnection({
 // Connect to the database
 db.connect((err) => {
     if (err) {
-        console.error('Database connection failed:', err.stack);
+        console.error('Database connection failed:', err);
         return;
     }
     console.log('Connected to database.');
@@ -33,10 +33,10 @@ app.get('/', (req, res) => {
 app.post('/ask_mkulima/login', (req, res) => {
     const sql = "SELECT * FROM users WHERE email = ?";
     const values = [req.body.email];
-    
+
     db.query(sql, values, (err, data) => {
-        if (err) return res.json(err.message);
-        
+        if (err) return res.status(500).json({ message: err.message });
+
         if (data.length > 0) {
             const user = data[0];
             // Compare the provided password with the hashed password in the database
@@ -65,7 +65,7 @@ app.post('/ask_mkulima/signup', async (req, res) => {
 
     db.query(sql, values, (err, data) => {
         if (err) {
-            return res.status(500).json(err.message);
+            return res.status(500).json({ message: err.message });
         }
         return res.status(201).json({ message: 'User registered successfully' });
     });
@@ -74,5 +74,5 @@ app.post('/ask_mkulima/signup', async (req, res) => {
 // Start server
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-    console.log(`Running at port ${port}`);
+    console.log(`Server running at http://localhost:${port}`);
 });

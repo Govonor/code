@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import DeliverySelection from '../components/DeliverySelection';
+import DeliverySelection from './DeliverySelection';
 
 const DeliveryManagement = () => {
   const [orders, setOrders] = useState([]);
